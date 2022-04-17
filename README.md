@@ -26,7 +26,7 @@ Run `eslint` from the command line:
 npm run lint
 ```
 
-Note: this will also report any errors `prettier` finds. For more information, see the comments in `.eslintrc`.  
+Note: this will also report any errors `prettier` finds. For more information on this prettier-eslint integration, see the comments in `.eslintrc`.  
 
 
 ## Production
