@@ -1,13 +1,11 @@
-# Nuxt 3 Minimal Starter
-
-We recommend to look at the [documentation](https://v3.nuxtjs.org).
+# Zork: The Great Underground Empire - Vue Edition
 
 ## Setup
 
 Make sure to install the dependencies
 
 ```bash
-yarn install
+npm ci
 ```
 
 ## Development
@@ -15,8 +13,19 @@ yarn install
 Start the development server on http://localhost:3000
 
 ```bash
-yarn dev
+npm run dev -- -o
 ```
+
+### Linting
+
+The `vue3` docs include a [guide](https://vuejs.org/guide/scaling-up/tooling.html#linting) for using `eslint`. 
+
+Run `eslint` from the command line:
+
+```bash
+npm run lint
+```
+
 
 ## Production
 
