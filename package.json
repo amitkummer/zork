@@ -4,7 +4,9 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs",
-    "lint": "eslint --ext .js,.vue components app.vue",
+    "eslint": "eslint --ext .js,.vue components app.vue",
+    "stylelint": "npx stylelint assets/**/*.scss components/**/*.vue app.vue",
+    "lint": "npm run eslint && npm run stylelint" ,
     "format": "npx prettier --write ."
   },
   "devDependencies": {
@@ -13,8 +15,13 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.6.0",
     "nuxt3": "latest",
+    "postcss-html": "^1.4.1",
     "prettier": "2.6.2",
     "sass": "^1.50.0",
-    "sass-loader": "^12.6.0"
+    "sass-loader": "^12.6.0",
+    "stylelint": "^14.7.1",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-config-standard-vue": "^1.0.0"
   }
 }
