@@ -4,6 +4,8 @@ module.exports = {
     // add more generic rulesets here, such as:
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
+    // https://github.com/prettier/eslint-config-prettier#installation
+    'prettier',
   ],
   rules: {
     // override/add rules settings here, such as:
