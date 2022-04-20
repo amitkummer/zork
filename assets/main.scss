@@ -1,5 +1,14 @@
 // Main stylesheet.
 
 // Theme Systemization.
-@import 'theme/colors'
+@use 'theme/color';
+@use 'theme/space';
+@use 'theme/type';
+
+// Base.
+@use 'base/reset';
+@use 'base/site';
+
+// Layout.
+@use 'layout/page';
 

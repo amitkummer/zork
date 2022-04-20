@@ -6,10 +6,11 @@
     "start": "node .output/server/index.mjs",
     "eslint": "eslint --ext .js,.vue components app.vue",
     "stylelint": "npx stylelint assets/**/*.scss components/**/*.vue app.vue",
-    "lint": "npm run eslint && npm run stylelint" ,
+    "lint": "npm run eslint && npm run stylelint",
     "format": "npx prettier --write ."
   },
   "devDependencies": {
+    "@openfonts/fira-code_latin": "^1.44.8",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

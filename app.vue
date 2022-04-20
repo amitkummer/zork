@@ -1,5 +1,6 @@
 <template>
-  <div>
-    <Container />
- </div>
+  <div class="l-page">
+    <MainCard />
+    <TmuxFootbar />
+  </div>
 </template>
