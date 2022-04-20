@@ -13,7 +13,7 @@ npm ci
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev -- -o
+npm run dev
 ```
 
 ### Linting
