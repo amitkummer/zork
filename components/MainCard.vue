@@ -9,6 +9,17 @@ import { ref } from 'vue';
         🐧 Star on GitHub
       </a>
     </legend>
+    <div class="description">
+      <div class="description-title">
+        Zork: The Great Underground Empire
+      </div>
+      <div class="description-subtitle">
+        version: 0.0.1 | @amitkummer
+      </div>
+    </div>
+    <div class="l-game-cards">
+      <GameCard />
+    </div>
   </fieldset>
 </template>
 
@@ -36,5 +47,31 @@ import { ref } from 'vue';
       border-bottom: none; 
     }
   }
+}
+
+.description {
+  width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-20);
+
+  &-title {
+    text-align: center;
+    font-size: var(--type-size-6);
+  }
+
+  &-subtitle {
+    text-align: right;
+    font-size: var(--type-size-2);
+    margin-right: var(--space-4);
+    color: var(--color-secondary-f1)
+  }
+}
+
+
+.l-game-cards {
+  display: flex;
+  justify-content: center;
 }
 </style>
