@@ -7,7 +7,7 @@ Make sure to install the dependencies
 ```bash
 # --legacy-peer-deps is required for installing pinia.
 # https://github.com/vuejs/pinia/issues/853
-npm install --legacy-peer-deps
+npm ci --legacy-peer-deps
 ```
 
 ## Development
