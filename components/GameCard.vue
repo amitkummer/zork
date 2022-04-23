@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import { storeToRefs  } from 'pinia'
+import { useStore } from '@/stores/game'
+
+const store = useStore()
+const { location } = storeToRefs(store)
+</script>
 
 <template>
 <div class=game-card>
+{{ location }}
 </div>
 </template>
 
