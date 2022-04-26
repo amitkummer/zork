@@ -94,10 +94,12 @@ export class Player {
 
   addToInventory(item) {
     this.inventory.push(item);
+    GameEngine.inventoryChangedCallback(this.inventory);
   }
 
   removeFromInventory(item) {
     this.inventory = this.inventory.filter((e) => e !== item);
+    GameEngine.inventoryChangedCallback(this.inventory);
   }
 
   loadPlayerState() {

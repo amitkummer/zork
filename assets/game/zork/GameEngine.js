@@ -1,6 +1,7 @@
 import { CLI } from "./CLI.js";
 import { Player } from "./Player.js";
 import { roomList } from "./Room.js";
+import { itemObjects } from "./Item.js";
 
 export const GameEngine = {
   /**
@@ -9,8 +10,9 @@ export const GameEngine = {
    *                                  location whenever it changes.
    * Start the game engine
    */
-  init: (outputCallback, roomChangedCallback) => {
+  init: (outputCallback, roomChangedCallback, inventoryChangedCallback) => {
     GameEngine.roomChangedCallback = roomChangedCallback;
+    GameEngine.inventoryChangedCallback = inventoryChangedCallback;
     GameEngine.initializeCLI(outputCallback);
     GameEngine.initalizePlayer();
     GameEngine.lookAction();

@@ -19,6 +19,8 @@ import { ref } from 'vue';
     </div>
     <div class="l-game-cards">
       <GameCard />
+      <InventoryCard />
+      <CommandsCard />
     </div>
   </fieldset>
 </template>
@@ -53,8 +55,7 @@ import { ref } from 'vue';
   width: 900px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: var(--space-10);
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-14);
 
   &-title {
     text-align: center;
@@ -63,7 +64,6 @@ import { ref } from 'vue';
 
   &-subtitle {
     text-align: right;
-    font-size: var(--type-size-2);
     margin-right: var(--space-4);
     color: var(--color-secondary-f1)
   }
@@ -71,7 +71,13 @@ import { ref } from 'vue';
 
 
 .l-game-cards {
-  display: flex;
+  display: grid;
+  grid-template-areas: 
+    "audio game inventory"
+    "audio game previous-commands";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  row-gap: 60px;
   justify-content: center;
 }
 </style>

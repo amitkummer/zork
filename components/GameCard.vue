@@ -14,6 +14,7 @@ let userInput = ref("")
 
 function submitInput() {
   store.enterCommand(userInput.value)
+  userInput.value = ''
 }
 </script>
 
@@ -38,6 +39,7 @@ function submitInput() {
 
 <style lang="scss">
 .game {
+  grid-area: game;
   width: 800px;
   height: 600px; 
   border: 2px solid;

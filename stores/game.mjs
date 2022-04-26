@@ -19,6 +19,8 @@ export const useStore = defineStore('game', {
       // element is the first output produced by the game, last element
       // is the latest output.
       output: [],
+      // Player Inventory.
+      inventory: [],
     }
   },
   actions: {
@@ -28,7 +30,12 @@ export const useStore = defineStore('game', {
     initGame() {
       const outputCallback = (gameOutput) => this.output.push(gameOutput)
       const locationChangeCallback = (playerLocation) =>  this.location = playerLocation
-      this.game = startGame(outputCallback, locationChangeCallback)
+      const inventoryChangeCallback = (inventory) => this.inventory = inventory
+      this.game = startGame(
+        outputCallback,
+        locationChangeCallback,
+        inventoryChangeCallback
+      )
     },
     // Enter a command executed by the user (e.g, 'open mailbox').
     // This updates the state of all the getter's.
