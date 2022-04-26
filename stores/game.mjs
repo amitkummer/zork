@@ -20,7 +20,7 @@ export const useStore = defineStore('game', {
       // is the latest output.
       output: [],
       // Player Inventory.
-      inventory: [],
+      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword', 'Torch', 'Gems' ],
     }
   },
   actions: {
@@ -41,8 +41,8 @@ export const useStore = defineStore('game', {
     // This updates the state of all the getter's.
     // Call this with raw player input.
     enterCommand(command) {
+      this.previousCommands.unshift(command)
       this.game.submitCommand(command)
-      this.previousCommands.push(command)
     },
   }
 })
