@@ -20,7 +20,7 @@ const { inventory } = storeToRefs(store)
           The wierd ternary here is for adding a
           dot after each inventory item.
           -->
-          {{ item + (item === '' ? '' : '.') }}
+          {{ item + '.' }}
         </span>
       </li>
     </ol>
@@ -30,6 +30,7 @@ const { inventory } = storeToRefs(store)
 <style lang="scss">
 
 .inventory {
+  grid-area: inventory;
   align-self: end;
 }
 

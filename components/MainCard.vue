@@ -18,6 +18,7 @@ import { ref } from 'vue';
       </div>
     </div>
     <div class="l-game-cards">
+      <AudioCard />
       <GameCard />
       <InventoryCard />
       <CommandsCard />
@@ -72,10 +73,10 @@ import { ref } from 'vue';
 
 .l-game-cards {
   display: grid;
+  grid-template-columns: 1fr 800px 1fr;
   grid-template-areas: 
     "audio game inventory"
-    "audio game previous-commands";
-  grid-template-columns: repeat(3, 1fr);
+    ". game previous-commands";
   gap: 50px;
   row-gap: 60px;
   justify-content: center;
