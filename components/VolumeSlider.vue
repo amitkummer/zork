@@ -39,7 +39,7 @@ defineProps({
 <style lang="scss">
 .slider {
   display: flex;
-  gap: var(--space-10);
+  gap: var(--space-8);
 
   &-text {
     font-size: var(--type-size-2);

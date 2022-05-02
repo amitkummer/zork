@@ -1,5 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+import { storeToRefs  } from 'pinia'
+import { useStore } from '@/stores/audio' 
+
+const store = useStore()
+const { settings } = storeToRefs(store)
 
 const title = 'Speech'
 const speech = ref(4)
@@ -13,7 +18,7 @@ const speech = ref(4)
       </span>
     </legend>
     <div class="audio-items">
-      <VolumeSlider v-model="speech" :legened="title"/>  
+      <VolumeSlider class="audio-items-single" v-for="setting in settings" v-model="setting.value" :legened="setting.name"/>  
     </div>
   </fieldset>
 </template>
@@ -28,8 +33,11 @@ const speech = ref(4)
 
   &-items {
     margin-top: var(--space-5);
-    display: flex;
-    justify-content: center;
+    margin-right: var(--space-2);
+
+    &-single {
+      margin-top: var(--space-1);
+    }
   }
 }
 </style>
