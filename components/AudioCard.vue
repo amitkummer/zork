@@ -25,11 +25,11 @@ const speech = ref(4)
 
 <style lang="scss">
 .audio {
+  margin-top: var(--space-6);
   grid-area: audio;
   height: 220px;
   width: 430px;
   justify-self: end;
-  align-self: end;
 
   &-items {
     margin-top: var(--space-5);
