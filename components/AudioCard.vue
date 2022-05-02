@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { storeToRefs  } from 'pinia'
 import { useStore } from '@/stores/audio' 
 
 const store = useStore()
-const { settings } = storeToRefs(store)
+const settings =  reactive(store.settings)
 
 const title = 'Speech'
 const speech = ref(4)
