@@ -32,11 +32,10 @@ const speech = ref(4)
   justify-self: end;
 
   &-items {
-    margin-top: var(--space-5);
-    margin-right: var(--space-2);
+    margin-right: var(--space-3);
 
     &-single {
-      margin-top: var(--space-1);
+      margin-top: var(--space-3);
     }
   }
 }

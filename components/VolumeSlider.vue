@@ -18,24 +18,21 @@ defineProps({
       {{ legened }} 
     </span>
     <span class="slider-markers">
-      <span class="marker-container"
-            v-for="n in 8-modelValue"
-            @mousedown.left="$emit('update:modelValue', 9-n)">
-        <svg class="marker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-          <path class="marker-stroke" d="M8,3.41,12.59,8,8,12.59,3.41,8,8,3.41M8,2,2,8l6,6,6-6L8,2Z"/>
-          <rect class="marker-marker" x="3.55" y="3.55" width="8.9" height="8.9" transform="translate(-3.31 8) rotate(-45)"/>
-          <path class="marker-stroke" d="M8,2.41,13.59,8,8,13.59,2.41,8,8,2.41M8,1,1,8l7,7,7-7L8,1Z"/>
-        </svg>    
-      </span>
-      <span class="marker-container"
-            v-for="n in modelValue"
-            @mousedown.left="$emit('update:modelValue', modelValue+1-n)">
-        <svg class="marker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-          <path class="marker-stroke" d="M8,3.41,12.59,8,8,12.59,3.41,8,8,3.41M8,2,2,8l6,6,6-6L8,2Z"/>
-          <rect class="marker-stroke" x="3.55" y="3.55" width="8.9" height="8.9" transform="translate(-3.31 8) rotate(-45)"/>
-          <path class="marker-stroke" d="M8,2.41,13.59,8,8,13.59,2.41,8,8,2.41M8,1,1,8l7,7,7-7L8,1Z"/>
-        </svg>    
-      </span>
+      <svg class="marker"
+           v-for="n in 8-modelValue"
+           @mousedown.left="$emit('update:modelValue', 9-n)"
+           xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 18 16">
+        <rect class="marker-marker" x="3.55" y="3.55" width="8.9" height="8.9" transform="translate(-3.31 8) rotate(-45)"/>
+        <path class="marker-stroke" d="M8,2.41,13.59,8,8,13.59,2.41,8,8,2.41M8,1,1,8l7,7,7-7L8,1Z"/>
+      </svg>
+
+      <svg class="marker"
+           v-for="n in modelValue"
+           @mousedown.left="$emit('update:modelValue', modelValue+1-n)"
+           xmlns="http://www.w3.org/2000/svg" viewBox="-2 0 18 16">
+        <rect class="marker-stroke" x="3.55" y="3.55" width="8.9" height="8.9" transform="translate(-3.31 8) rotate(-45)"/>
+        <path class="marker-stroke" d="M8,2.41,13.59,8,8,13.59,2.41,8,8,2.41M8,1,1,8l7,7,7-7L8,1Z"/>
+      </svg>    
     </span>
   </div>
 </template>
@@ -77,10 +74,6 @@ defineProps({
 
   &-stroke {
     fill: hsl(0, 0%, 44%);
-  }
-
-  &-container {
-    margin-right: var(--space-1);
   }
 }
 
