@@ -23,6 +23,7 @@ const { inventory } = storeToRefs(store)
           {{ item + '.' }}
         </span>
       </li>
+      <li v-if="inventory.length < 7" v-for="n in 7-inventory.length"/>
     </ol>
   </fieldset>
 </template>

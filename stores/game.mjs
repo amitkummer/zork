@@ -20,7 +20,7 @@ export const useStore = defineStore('game', {
       // is the latest output.
       output: [],
       // Player Inventory.
-      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword', 'Torch', 'Gems' ],
+      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword'],
     }
   },
   actions: {
@@ -30,7 +30,10 @@ export const useStore = defineStore('game', {
     initGame() {
       const outputCallback = (gameOutput) => this.output.push(gameOutput)
       const locationChangeCallback = (playerLocation) =>  this.location = playerLocation
-      const inventoryChangeCallback = (inventory) => this.inventory = inventory
+      const inventoryChangeCallback = (inventory) => {
+        // Capitalize each inventory item's name.
+        this.inventory = inventory.map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      }
       this.game = startGame(
         outputCallback,
         locationChangeCallback,
