@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const settings = [ 'Speech', 'SFX', 'Music', 'Ambient SFX' ]
+const title = 'Speech'
 const speech = ref(4)
 </script>
 
@@ -13,7 +13,7 @@ const speech = ref(4)
       </span>
     </legend>
     <div class="audio-items">
-      <VolumeSlider v-model="speech"/>  
+      <VolumeSlider v-model="speech" :legened="title"/>  
     </div>
   </fieldset>
 </template>
@@ -28,6 +28,8 @@ const speech = ref(4)
 
   &-items {
     margin-top: var(--space-5);
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

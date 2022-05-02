@@ -4,6 +4,10 @@ defineProps({
   modelValue: { 
     type: Number,
     required: true,
+  },
+  legened: {
+    type: String,
+    required: true,
   }
 })
 </script>
@@ -11,7 +15,7 @@ defineProps({
 <template>
   <div class="slider">
     <span class="slider-text">
-      Speech
+      {{ legened }} 
     </span>
     <span class="slider-markers">
       <span class="marker-container" v-for="n in 8-modelValue">
