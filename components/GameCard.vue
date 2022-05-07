@@ -67,7 +67,7 @@ function submitInput() {
   }
 
   &-input {
-    padding: 0;
+    padding-left: var(--space-2);
     margin-top: var(--space-5);
     background-color: var(--color-primary-b2);
     font-family: inherit;
@@ -76,6 +76,10 @@ function submitInput() {
     font-size: 100%;
     height: 50px;
     width: 95%;
+
+    &:focus {
+      outline: var(--color-secondary-f1) solid 1px;
+    }
   }
 }
 </style>
