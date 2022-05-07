@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 import { startGame } from '~~/assets/game'
+import { useAudioStore } from './audio'
 
 export const useStore = defineStore('game', {
   // arrow function recommended for full type inference
@@ -28,7 +29,11 @@ export const useStore = defineStore('game', {
     // outputCallback is called by the game when new output is available.
     // locationChangeCallback is called with player location whenever it changes.
     initGame() {
-      const outputCallback = (gameOutput) => this.output.push(gameOutput)
+      const outputCallback = (gameOutput) => {
+        this.output.push(gameOutput)
+        const audioStore = useAudioStore()
+        audioStore.speak(gameOutput)
+      }
       const locationChangeCallback = (playerLocation) =>  this.location = playerLocation
       const inventoryChangeCallback = (inventory) => {
         // Capitalize each inventory item's name.
