@@ -45,11 +45,12 @@ function submitInput() {
   border: 2px solid;
   border-color: var(--color-secondary-f1); 
   background-color: var(--color-primary-b2);
-  padding: 20px 40px;
+  padding: 20px 30px 20px 40px;
   display: flex;
   flex-direction: column;
 
   &-output {
+    padding-right: 20px;
     max-height: 90%;
     flex-grow: 1;
     overflow: auto;
