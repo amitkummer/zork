@@ -1,39 +1,46 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { storeToRefs  } from 'pinia'
-import { useStore } from '@/stores/game'
+import { ref, onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useStore } from '@/stores/game';
 
 onMounted(() => {
-  store.initGame()
-})
+  store.initGame();
+});
 
-const store = useStore()
-const { location, output } = storeToRefs(store)
+const store = useStore();
+const { location, output } = storeToRefs(store);
 
-let userInput = ref("")
+let userInput = ref('');
 
 function submitInput() {
-  store.enterCommand(userInput.value)
-  userInput.value = ''
+  store.enterCommand(userInput.value);
+  userInput.value = '';
 }
 </script>
 
 <template>
-<div class=game>
-  <div class="game-output">
-    <p>
-      {{ location }}
-    </p>
-    <p class="game-output-single" v-for="paragraph in output">
-      {{ paragraph }}
-    </p>
-    <div class="game-output-anchor" />
-  </div>
-  <div>
-    <span> $ </span>
-    <input class="game-input" v-model="userInput"
-           @keydown.enter="submitInput">
-  </div>
+  <div class="game">
+    <div class="game-output">
+      <p>
+        {{ location }}
+      </p>
+      <p
+        v-for="(paragraph, index) in output"
+        :key="index"
+        class="game-output-single"
+      >
+        {{ paragraph }}
+      </p>
+      <div class="game-output-anchor" />
+    </div>
+    <div>
+      <span> $ </span>
+      <input
+        v-model="userInput"
+        class="game-input"
+        @keydown.enter="submitInput"
+      />
+    </div>
   </div>
 </template>
 
@@ -41,9 +48,9 @@ function submitInput() {
 .game {
   grid-area: game;
   width: 800px;
-  height: 600px; 
+  height: 600px;
   border: 2px solid;
-  border-color: var(--color-secondary-f1); 
+  border-color: var(--color-secondary-f1);
   background-color: var(--color-primary-b2);
   padding: 20px 30px 20px 40px;
   display: flex;
@@ -61,6 +68,7 @@ function submitInput() {
     &-single {
       overflow-anchor: none;
     }
+
     &-anchor {
       overflow-anchor: auto;
       height: 1px;

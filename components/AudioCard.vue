@@ -1,24 +1,24 @@
 <script setup>
-import { ref, reactive } from 'vue'
-import { storeToRefs  } from 'pinia'
-import { useAudioStore } from '@/stores/audio' 
+import { reactive } from 'vue';
+import { useAudioStore } from '@/stores/audio';
 
-const store = useAudioStore()
-const settings =  reactive(store.settings)
-
-const title = 'Speech'
-const speech = ref(4)
+const store = useAudioStore();
+const settings = reactive(store.settings);
 </script>
 
 <template>
   <fieldset class="card audio">
     <legend class="card-title">
-      <span class=card-title-text>
-        Audio Settings
-      </span>
+      <span class="card-title-text"> Audio Settings </span>
     </legend>
     <div class="audio-items">
-      <VolumeSlider class="audio-items-single" v-for="setting in settings" v-model="setting.value" :legened="setting.name"/>  
+      <VolumeSlider
+        v-for="setting in settings"
+        :key="setting.name"
+        v-model="setting.value"
+        class="audio-items-single"
+        :legened="setting.name"
+      />
     </div>
   </fieldset>
 </template>

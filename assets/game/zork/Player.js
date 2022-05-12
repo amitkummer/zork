@@ -1,5 +1,5 @@
-import { GameEngine } from "./GameEngine.js";
-import { roomList } from './Room.js'
+import { GameEngine } from './GameEngine.js';
+import { roomList } from './Room.js';
 
 /**
  * Player Data Model
@@ -20,7 +20,7 @@ export class Player {
     inventory = [],
     moves = 0,
     score = 0,
-    currentRoom = "westOfHouse",
+    currentRoom = 'westOfHouse',
     previousRoom = null,
     gameIsSaved = false,
     verbose = false
@@ -121,7 +121,7 @@ export class Player {
     this.inventory = [];
     this.moves = 0;
     this.score = 0;
-    this.currentRoom = "westOfHouse";
+    this.currentRoom = 'westOfHouse';
     this.previousRoom = null;
     this.gameIsSaved = false;
     this.verbose = false;
@@ -130,15 +130,15 @@ export class Player {
 
   savePlayerState() {
     this.gameIsSaved = true;
-    localStorage.setItem("zorkSaveGameState", JSON.stringify(this));
+    localStorage.setItem('zorkSaveGameState', JSON.stringify(this));
   }
 
   resetPlayerState() {
-    localStorage.removeItem("zorkSaveGameState");
+    localStorage.removeItem('zorkSaveGameState');
     this.inventory = [];
     this.moves = 0;
     this.score = 0;
-    this.currentRoom = "westOfHouse";
+    this.currentRoom = 'westOfHouse';
     this.previousRoom = null;
     this.gameIsSaved = false;
     this.verbose = false;

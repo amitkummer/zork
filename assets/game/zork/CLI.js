@@ -1,5 +1,5 @@
-import { GameEngine } from "./GameEngine.js";
-import { itemArray } from "./Item.js";
+import { GameEngine } from './GameEngine.js';
+import { itemArray } from './Item.js';
 
 /**
  * CLI Service Class
@@ -12,50 +12,50 @@ export class CLI {
   constructor(outputCallback) {
     this.outputCallback = outputCallback;
     this.allowedVerbs = [
-      "GO",
-      "LOOK",
-      "TAKE",
-      "PUSH",
-      "BACK",
-      "PULL",
-      "DROP",
-      "OPEN",
-      "WAIT",
-      "ENTER",
-      "CLOSE",
-      "INVENTORY",
-      "BAG",
-      "ZYZZY",
-      "HELP",
-      "USE",
-      "NORTH",
-      "EAST",
-      "SOUTH",
-      "WEST",
-      "MAILBOX",
-      "UP",
-      "DOWN",
-      "LEFT",
-      "RIGHT",
-      "SAVE",
-      "RESET",
-      "HELP",
-      "STATE",
-      "BRIEF",
-      "VERBOSE",
-      "READ",
-      "CLIMB",
-      "UP",
-      "DOWN",
+      'GO',
+      'LOOK',
+      'TAKE',
+      'PUSH',
+      'BACK',
+      'PULL',
+      'DROP',
+      'OPEN',
+      'WAIT',
+      'ENTER',
+      'CLOSE',
+      'INVENTORY',
+      'BAG',
+      'ZYZZY',
+      'HELP',
+      'USE',
+      'NORTH',
+      'EAST',
+      'SOUTH',
+      'WEST',
+      'MAILBOX',
+      'UP',
+      'DOWN',
+      'LEFT',
+      'RIGHT',
+      'SAVE',
+      'RESET',
+      'HELP',
+      'STATE',
+      'BRIEF',
+      'VERBOSE',
+      'READ',
+      'CLIMB',
+      'UP',
+      'DOWN'
     ];
     this.openableInstances = [
-      "WINDOW",
-      "DOOR",
-      "TRAPDOOR",
-      "TRAP",
-      "TREE",
-      "KITCHEN",
-      "CHIMNEY",
+      'WINDOW',
+      'DOOR',
+      'TRAPDOOR',
+      'TRAP',
+      'TREE',
+      'KITCHEN',
+      'CHIMNEY'
     ];
   }
 
@@ -153,20 +153,20 @@ export class CLI {
       SAVE: GameEngine.saveGame,
       RESET: GameEngine.resetGame,
       BRIEF: GameEngine.setBriefOutput,
-      VERBOSE: GameEngine.setVerboseOutput,
+      VERBOSE: GameEngine.setVerboseOutput
     };
 
     if (
       [
-        "NORTH",
-        "SOUTH",
-        "EAST",
-        "WEST",
-        "BACK",
-        "CLIMB",
-        "ENTER",
-        "UP",
-        "DOWN",
+        'NORTH',
+        'SOUTH',
+        'EAST',
+        'WEST',
+        'BACK',
+        'CLIMB',
+        'ENTER',
+        'UP',
+        'DOWN'
       ].includes(cmd)
     ) {
       verbMap[cmd](cmd);

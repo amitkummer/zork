@@ -20,15 +20,15 @@ npm run dev
 
 ### Linting
 
-The `vue3` docs include a [guide](https://vuejs.org/guide/scaling-up/tooling.html#linting) for using `eslint`. 
+The `vue3` docs include a [guide](https://vuejs.org/guide/scaling-up/tooling.html#linting) for using `eslint`.
 
 Run `eslint` from the command line:
 
 ```bash
-npm run eslint 
+npm run eslint
 ```
 
-Note: this will also report any errors `prettier` finds. For more information on this prettier-eslint integration, see the comments in `.eslintrc`.  
+Note: this will also report any errors `prettier` finds. For more information on this prettier-eslint integration, see the comments in `.eslintrc`.
 
 Run 'stylelint' from the command line:
 
@@ -43,7 +43,6 @@ npm run lint
 ```
 
 To fix `stylelint` errors use `stylelint --fix`.
-
 
 ## Production
 

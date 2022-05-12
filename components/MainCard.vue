@@ -1,21 +1,15 @@
-<script setup>
-import { ref } from 'vue';
-</script>
+<script setup></script>
 
 <template>
   <fieldset class="l-main">
     <legend class="l-main-title">
-      <a class="l-main-title-link" href=https://github.com/amitkummer>
-        🐧 Star on GitHub
-      </a>
+      <a class="l-main-title-link" href="https://github.com/amitkummer"
+        >🐧 Star on GitHub</a
+      >
     </legend>
     <div class="description">
-      <div class="description-title">
-        Zork: The Great Underground Empire
-      </div>
-      <div class="description-subtitle">
-        version: 0.0.1 | @amitkummer
-      </div>
+      <div class="description-title">Zork: The Great Underground Empire</div>
+      <div class="description-subtitle">version: 0.0.1 | @amitkummer</div>
     </div>
     <div class="l-game-cards">
       <AudioCard />
@@ -37,9 +31,9 @@ import { ref } from 'vue';
   &-title {
     margin-left: var(--space-20);
     padding: var(--space-4);
-    
+
     &-link {
-      text-decoration: none; 
+      text-decoration: none;
       font-weight: var(--type-weight-3);
       color: var(--color-accent-f1);
       padding-bottom: var(--space-1);
@@ -47,7 +41,7 @@ import { ref } from 'vue';
     }
 
     &-link:hover {
-      border-bottom: none; 
+      border-bottom: none;
     }
   }
 }
@@ -66,17 +60,16 @@ import { ref } from 'vue';
   &-subtitle {
     text-align: right;
     margin-right: var(--space-4);
-    color: var(--color-secondary-f1)
+    color: var(--color-secondary-f1);
   }
 }
-
 
 .l-game-cards {
   display: grid;
   grid-template-columns: 1fr 800px 1fr;
-  grid-template-areas: 
-    "audio game inventory"
-    ". game previous-commands";
+  grid-template-areas:
+    'audio game inventory'
+    '. game previous-commands';
   gap: 50px;
   row-gap: 60px;
   justify-content: center;

@@ -1,20 +1,18 @@
 <script setup>
-import { storeToRefs  } from 'pinia'
-import { useStore } from '@/stores/game'
+import { storeToRefs } from 'pinia';
+import { useStore } from '@/stores/game';
 
-const store = useStore()
-const { inventory } = storeToRefs(store)
+const store = useStore();
+const { inventory } = storeToRefs(store);
 </script>
 
 <template>
   <fieldset class="card inventory">
     <legend class="card-title">
-      <span class="card-title-text">
-        Inventory
-      </span>
+      <span class="card-title-text"> Inventory </span>
     </legend>
     <ol class="inventory-items">
-      <li v-for="item in inventory">
+      <li v-for="(item, index) in inventory" :key="index">
         <span class="inventory-items-single">
           <!-- 
           The wierd ternary here is for adding a
@@ -23,13 +21,14 @@ const { inventory } = storeToRefs(store)
           {{ item + '.' }}
         </span>
       </li>
-      <li v-if="inventory.length < 7" v-for="n in 7-inventory.length"/>
+      <section v-if="inventory.length < 7">
+        <li v-for="n in 7 - inventory.length" :key="n" />
+      </section>
     </ol>
   </fieldset>
 </template>
 
 <style lang="scss">
-
 .inventory {
   grid-area: inventory;
   align-self: end;

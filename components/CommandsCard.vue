@@ -1,24 +1,26 @@
 <script setup>
-import { storeToRefs  } from 'pinia'
-import { useStore } from '@/stores/game'
+import { storeToRefs } from 'pinia';
+import { useStore } from '@/stores/game';
 
-const store = useStore()
-const { previousCommands } = storeToRefs(store)
-function log() {
-  console.log("raz")
-}
+const store = useStore();
+const { previousCommands } = storeToRefs(store);
 </script>
 
 <template>
   <fieldset class="card commands">
     <legend class="card-title">
-      <span class=card-title-text>
-        History
-      </span>
+      <span class="card-title-text"> History </span>
     </legend>
     <ul class="commands-items">
-      <li class="commands-items-single" v-for="command in previousCommands">
-        <button @click="store.enterCommand(command)" class="commands-items-single-text">
+      <li
+        v-for="(command, index) in previousCommands"
+        :key="index"
+        class="commands-items-single"
+      >
+        <button
+          class="commands-items-single-text"
+          @click="store.enterCommand(command)"
+        >
           {{ command }}
         </button>
       </li>
@@ -33,10 +35,10 @@ function log() {
   &-items {
     height: 85%;
     overflow: auto;
-    
+
     &-single {
       &::marker {
-        content: ">>";
+        content: '>>';
       }
 
       &-text {
@@ -49,7 +51,7 @@ function log() {
         font-size: 100%;
 
         &:hover {
-          border-bottom: 1px solid; 
+          border-bottom: 1px solid;
         }
       }
     }

@@ -1,12 +1,12 @@
-import { CLI } from "./CLI.js";
-import { Player } from "./Player.js";
-import { roomList } from "./Room.js";
-import { itemObjects } from "./Item.js";
+import { CLI } from './CLI.js';
+import { Player } from './Player.js';
+import { roomList } from './Room.js';
+import { itemObjects } from './Item.js';
 
 export const GameEngine = {
   /**
    * @param {} outputCallback Function to be called with new game output.
-   * @param {} roomChangedCallback Function to be called with player 
+   * @param {} roomChangedCallback Function to be called with player
    *                                  location whenever it changes.
    * Start the game engine
    */
@@ -102,20 +102,14 @@ export const GameEngine = {
     let currentRoom = GameEngine.getCurrentRoom();
 
     if (!roomList[currentRoom].roomIsDark) {
-      GameEngine.cli.output(
-        roomList[currentRoom].name
-      );
+      GameEngine.cli.output(roomList[currentRoom].name);
       GameEngine.cli.output(roomList[currentRoom].look);
 
       GameEngine.showItems(roomList[currentRoom]);
     } else if (roomList[currentRoom].roomIsDark && !lantern.itemInUse) {
-      GameEngine.cli.output(
-        roomList[currentRoom].darkText
-      );
+      GameEngine.cli.output(roomList[currentRoom].darkText);
     } else if (roomList[currentRoom].roomIsDark && lantern.itemInUse) {
-      GameEngine.cli.output(
-        roomList[currentRoom].name
-      );
+      GameEngine.cli.output(roomList[currentRoom].name);
       GameEngine.cli.output(roomList[currentRoom].look);
 
       GameEngine.showItems(roomList[currentRoom]);
@@ -134,17 +128,17 @@ export const GameEngine = {
     }
 
     if (itemlist.length === 1) {
-      GameEngine.cli.output("There is a " + itemlist[0] + " here.");
+      GameEngine.cli.output('There is a ' + itemlist[0] + ' here.');
     } else if (itemlist.length > 1) {
-      var str = "";
+      var str = '';
       for (var i = 0; i < itemlist.length; i++) {
         if (!itemlist[i + 1]) {
           str.concat(itemlist[i]);
         } else {
-          str.concat(itemlist[i] + ", ");
+          str.concat(itemlist[i] + ', ');
         }
       }
-      GameEngine.cli.output("There is a " + str + " here.");
+      GameEngine.cli.output('There is a ' + str + ' here.');
     }
   },
 
@@ -152,7 +146,7 @@ export const GameEngine = {
     let currentRoom = GameEngine.getCurrentRoom();
     let lDirection = direction.toLowerCase();
 
-    if (lDirection == "back") {
+    if (lDirection == 'back') {
       GameEngine.player.setCurrentLocation(
         GameEngine.player.getPreviousLocation()
       );
@@ -173,9 +167,7 @@ export const GameEngine = {
 
     if (GameEngine.player.getVerboseMode()) {
       if (currentRoom.visited) {
-        GameEngine.cli.output(
-          roomList[currentRoom].name
-        );
+        GameEngine.cli.output(roomList[currentRoom].name);
         GameEngine.showItems(roomList[currentRoom]);
       } else {
         GameEngine.lookAction();
@@ -188,30 +180,28 @@ export const GameEngine = {
   },
 
   openAction: (direction) => {
-    if (direction == "EGG") {
-      GameEngine.useAction("EGG");
+    if (direction == 'EGG') {
+      GameEngine.useAction('EGG');
       return;
     }
 
     let currentRoom = GameEngine.getCurrentRoom();
 
     if (
-      roomList[currentRoom]["open"] === undefined ||
-      !roomList[currentRoom]["open"]
+      roomList[currentRoom]['open'] === undefined ||
+      !roomList[currentRoom]['open']
     ) {
       GameEngine.cli.output(GameEngine.outputList.notOpenable);
     } else {
       GameEngine.player.setPreviousLocation(roomList[currentRoom].varName);
       GameEngine.player.setCurrentLocation(
-        roomList[currentRoom]["open"].varName
+        roomList[currentRoom]['open'].varName
       );
       currentRoom = GameEngine.getCurrentRoom();
 
       if (GameEngine.player.getVerboseMode()) {
         if (currentRoom.visited) {
-          GameEngine.cli.output(
-            roomList[currentRoom].name
-          );
+          GameEngine.cli.output(roomList[currentRoom].name);
           GameEngine.showItems(roomList[currentRoom]);
         } else {
           GameEngine.lookAction();
@@ -230,17 +220,17 @@ export const GameEngine = {
     let currentRoom = GameEngine.getCurrentRoom();
 
     if (!roomList[currentRoom].items.includes(itemObject)) {
-      GameEngine.cli.output("A " + lItem + " does not exist here.");
+      GameEngine.cli.output('A ' + lItem + ' does not exist here.');
       return;
     }
 
     if (GameEngine.player.inventory[itemObject]) {
-      GameEngine.cli.output("The " + lItem + " is already in your bag.");
+      GameEngine.cli.output('The ' + lItem + ' is already in your bag.');
       return;
     }
 
     GameEngine.player.addToInventory(lItem);
-    GameEngine.cli.output("You put the " + lItem + " in your bag.");
+    GameEngine.cli.output('You put the ' + lItem + ' in your bag.');
   },
 
   readAction: (item) => {
@@ -248,11 +238,11 @@ export const GameEngine = {
     let itemObject = itemObjects[lItem];
 
     if (!GameEngine.player.inventory.includes(lItem)) {
-      GameEngine.cli.output("You don't own a " + lItem + " to read.");
+      GameEngine.cli.output("You don't own a " + lItem + ' to read.');
       return;
     }
 
-    if (!itemObject.actionArray.includes("read")) {
+    if (!itemObject.actionArray.includes('read')) {
       GameEngine.cli.output(GameEngine.outputList.notReadable);
       return;
     }
@@ -265,7 +255,7 @@ export const GameEngine = {
     let itemObject = itemObjects[lItem];
 
     if (!GameEngine.player.inventory.includes(lItem)) {
-      GameEngine.cli.output("You don't own a " + lItem + " to drop.");
+      GameEngine.cli.output("You don't own a " + lItem + ' to drop.');
       return;
     }
 
@@ -273,7 +263,7 @@ export const GameEngine = {
     roomList[currentRoom].items.push(itemObject);
 
     GameEngine.player.removeFromInventory(lItem);
-    GameEngine.cli.output("You have dropped the " + lItem);
+    GameEngine.cli.output('You have dropped the ' + lItem);
   },
 
   useAction: (item) => {
@@ -284,7 +274,7 @@ export const GameEngine = {
     let lItem = item.toLowerCase();
 
     if (!GameEngine.player.getPlayerInventory().includes(lItem)) {
-      GameEngine.cli.output("You don't have a " + lItem + " to use!");
+      GameEngine.cli.output("You don't have a " + lItem + ' to use!');
     }
 
     if (itemObjects[lItem].inUse) {
@@ -292,12 +282,10 @@ export const GameEngine = {
       itemObjects[lItem].inUse = false;
       GameEngine.lookAction();
     } else {
-      if (lItem == "egg") {
-        GameEngine.cli.output(
-          itemObjects[lItem].openDesc
-        );
-        if (GameEngine.getCurrentRoom() == "tree") {
-          GameEngine.goAction("back");
+      if (lItem == 'egg') {
+        GameEngine.cli.output(itemObjects[lItem].openDesc);
+        if (GameEngine.getCurrentRoom() == 'tree') {
+          GameEngine.goAction('back');
           return;
         }
       } else {
@@ -309,32 +297,32 @@ export const GameEngine = {
   },
 
   outputList: {
-    saveLoaded: "Game loaded from a previous save.",
-    gameSaved: "Your game state has been saved.",
-    gameReset: "Your game state has been reset.",
-    emptyBag: "There is nothing in your bag!",
-    bagContains: "Your bag contains:",
-    acceptableCommands: "Here is a list of acceptable commands:",
+    saveLoaded: 'Game loaded from a previous save.',
+    gameSaved: 'Your game state has been saved.',
+    gameReset: 'Your game state has been reset.',
+    emptyBag: 'There is nothing in your bag!',
+    bagContains: 'Your bag contains:',
+    acceptableCommands: 'Here is a list of acceptable commands:',
     acceptableCommandList: [
-      "> go [direction]",
-      "> north",
-      "> east",
-      "> south",
-      "> west",
-      "> up",
-      "> down",
-      "> look",
-      "> open",
-      "> enter",
-      "> exit",
-      "> climb",
-      "> brief [ short descriptions ]",
-      "> verbose [ long descriptions ]",
-      "> help",
-      "> take",
-      "> bag",
-      "> save [ Save current game]",
-      "> reset [ Reset game including save ]",
+      '> go [direction]',
+      '> north',
+      '> east',
+      '> south',
+      '> west',
+      '> up',
+      '> down',
+      '> look',
+      '> open',
+      '> enter',
+      '> exit',
+      '> climb',
+      '> brief [ short descriptions ]',
+      '> verbose [ long descriptions ]',
+      '> help',
+      '> take',
+      '> bag',
+      '> save [ Save current game]',
+      '> reset [ Reset game including save ]'
     ],
     verboseMode:
       'ZORK is now in its "verbose" mode, which always gives long descriptions of locations (even if you\'ve been there before).',
@@ -342,8 +330,8 @@ export const GameEngine = {
       'ZORK is now in its normal "brief" printing mode, which gives long descriptions of places never before visited, and short descriptions otherwise.',
     invalidDirection: "You can't go that way.",
     notOpenable: "You can't open that.",
-    notUseable: "Use what?",
-    alreadyInUse: "The item is already in use. Putting item away.",
-    notReadable: "You can't read that.",
-  },
+    notUseable: 'Use what?',
+    alreadyInUse: 'The item is already in use. Putting item away.',
+    notReadable: "You can't read that."
+  }
 };
