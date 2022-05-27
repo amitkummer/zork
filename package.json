@@ -11,6 +11,8 @@
   },
   "devDependencies": {
     "@openfonts/fira-code_latin": "^1.44.8",
+    "@vueuse/core": "^8.5.0",
+    "@vueuse/nuxt": "^8.5.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

@@ -1,9 +1,22 @@
-<script setup></script>
+<script setup>
+import { useTimestamp } from '@vueuse/core';
+import { computed } from 'vue';
+
+const timestamp = useTimestamp({ offset: 0 });
+const date = computed(() => {
+  const now = new Date(timestamp.value);
+  return new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'long',
+    timeStyle: 'medium',
+    hour12: false
+  }).format(now);
+});
+</script>
 
 <template>
   <div class="tmux-footbar">
     <span> zork </span>
-    <span tmux-footbar-date> "DESKTOP-7NV43KK" 20:54 13-Apr-22 </span>
+    <span tmux-footbar-date> {{ date }} </span>
   </div>
 </template>
 
