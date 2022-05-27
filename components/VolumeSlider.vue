@@ -47,7 +47,7 @@ defineProps({
         class="marker"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-2 0 18 16"
-        @mousedown.left="$emit('update:modelValue', modelValue + 1 - n)"
+        @mousedown.left="$emit('update:modelValue', n == 1 ? 0 : modelValue + 1 - n)"
       >
         <rect
           class="marker-stroke"
