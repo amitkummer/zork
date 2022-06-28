@@ -1,6 +1,12 @@
 <script setup>
 import { useTimestamp } from '@vueuse/core';
-import { computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+
+
+// Don't show time when doing SSR, as the time will be different whe
+// the user loads the page on their browser, which will cause an hydration warning.
+const showTime = ref(false);
+onMounted(() => showTime.value = true)
 
 const timestamp = useTimestamp({ offset: 0 });
 const date = computed(() => {
@@ -16,7 +22,7 @@ const date = computed(() => {
 <template>
   <div class="tmux-footbar">
     <span> zork </span>
-    <span tmux-footbar-date> {{ date }} </span>
+    <span v-if="showTime" tmux-footbar-date> {{ date }} </span>
   </div>
 </template>
 
