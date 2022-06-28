@@ -1,19 +1,19 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
-import { useStore } from '@/stores/game';
+import { useGameStore } from '@/stores/game';
 
 onMounted(() => {
-  store.initGame();
+  gameStore.initGame();
 });
 
-const store = useStore();
-const { location, output } = storeToRefs(store);
+const gameStore = useGameStore();
+const { location, output } = storeToRefs(gameStore);
 
 let userInput = ref('');
 
 function submitInput() {
-  store.enterCommand(userInput.value);
+  gameStore.enterCommand(userInput.value);
   userInput.value = '';
 }
 </script>

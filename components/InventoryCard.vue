@@ -1,8 +1,8 @@
 <script setup>
 import { storeToRefs } from 'pinia';
-import { useStore } from '@/stores/game';
+import { useGameStore } from '@/stores/game';
 
-const store = useStore();
+const store = useGameStore();
 const { inventory } = storeToRefs(store);
 </script>
 

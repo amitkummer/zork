@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { startGame } from '~~/assets/game';
 import { useAudioStore } from './audio';
 
-export const useStore = defineStore('game', {
+export const useGameStore = defineStore('game', {
   // arrow function recommended for full type inference
   state: () => {
     return {
