@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { Howl } from 'howler';
 
 export const useAudioStore = defineStore('audio', {
   // arrow function recommended for full type inference
@@ -37,6 +38,18 @@ export const useAudioStore = defineStore('audio', {
         // Stop speeking currently being spoen utterance.
         window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utter);
+    },
+    playDropSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'Ambient SFX').value *
+        0.125;
+
+      new Howl({
+        src: ['audio/64-taps.wav'],
+        preload: true,
+        autoplay: true,
+        volume: volume
+      });
     }
   }
 });

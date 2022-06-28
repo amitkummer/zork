@@ -2,11 +2,10 @@
 import { useTimestamp } from '@vueuse/core';
 import { ref, computed, onMounted } from 'vue';
 
-
 // Don't show time when doing SSR, as the time will be different whe
 // the user loads the page on their browser, which will cause an hydration warning.
 const showTime = ref(false);
-onMounted(() => showTime.value = true)
+onMounted(() => (showTime.value = true));
 
 const timestamp = useTimestamp({ offset: 0 });
 const date = computed(() => {

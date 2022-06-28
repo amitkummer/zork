@@ -10,9 +10,15 @@ export const GameEngine = {
    *                                  location whenever it changes.
    * Start the game engine
    */
-  init: (outputCallback, roomChangedCallback, inventoryChangedCallback) => {
+  init: (
+    outputCallback,
+    roomChangedCallback,
+    inventoryChangedCallback,
+    validCommandEnteredCallback
+  ) => {
     GameEngine.roomChangedCallback = roomChangedCallback;
     GameEngine.inventoryChangedCallback = inventoryChangedCallback;
+    GameEngine.validCommandEnteredCallback = validCommandEnteredCallback;
     GameEngine.initializeCLI(outputCallback);
     GameEngine.initalizePlayer();
     GameEngine.lookAction();

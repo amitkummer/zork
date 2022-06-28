@@ -82,6 +82,7 @@ export class CLI {
     // Command is valid
     let executableCommand = cmd[0];
     let commandArgument = cmd[1] ? cmd[1] : null;
+    GameEngine.validCommandEnteredCallback(executableCommand);
     this.executeCommand(executableCommand, commandArgument);
   }
 

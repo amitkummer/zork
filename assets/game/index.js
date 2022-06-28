@@ -10,12 +10,14 @@ import { GameEngine } from './zork/GameEngine.js';
 export function startGame(
   outputCallback,
   locationChangeCallback,
-  inventoryChangeCallback
+  inventoryChangeCallback,
+  validCommandEnteredCallback
 ) {
   GameEngine.init(
     outputCallback,
     locationChangeCallback,
-    inventoryChangeCallback
+    inventoryChangeCallback,
+    validCommandEnteredCallback
   );
   return {
     // TODO: ERROR: can't stringify this!

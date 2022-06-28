@@ -42,10 +42,18 @@ export const useGameStore = defineStore('game', {
           (item) => item.charAt(0).toUpperCase() + item.slice(1)
         );
       };
+      const validCommandEnteredCallback = (command) => {
+        const audioStore = useAudioStore();
+        switch (command) {
+          case 'DROP':
+            audioStore.playDropSound();
+        }
+      };
       this.game = startGame(
         outputCallback,
         locationChangeCallback,
-        inventoryChangeCallback
+        inventoryChangeCallback,
+        validCommandEnteredCallback
       );
     },
     // Enter a command executed by the user (e.g, 'open mailbox').
