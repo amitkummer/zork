@@ -47,6 +47,10 @@ export const useGameStore = defineStore('game', {
         switch (command) {
           case 'DROP':
             audioStore.playDropSound();
+            break;
+          case 'GO':
+            audioStore.playWalkSound();
+            break;
         }
       };
       this.game = startGame(

@@ -2,9 +2,11 @@
 import { ref, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useGameStore } from '@/stores/game';
+import { useAudioStore } from '@/stores/audio';
 
 onMounted(() => {
   gameStore.initGame();
+  useAudioStore().initSounds();
 });
 
 const gameStore = useGameStore();

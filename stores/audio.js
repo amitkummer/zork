@@ -24,7 +24,9 @@ export const useAudioStore = defineStore('audio', {
           name: 'Ambient SFX',
           value: 4
         }
-      ]
+      ],
+      dropSound: null,
+      walkSound: null
     };
   },
   actions: {
@@ -39,17 +41,29 @@ export const useAudioStore = defineStore('audio', {
         window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utter);
     },
+    initSounds() {
+      this.dropSound = new Howl({
+        src: ['audio/drop/2-taps.wav'],
+        preload: true
+      });
+      this.walkSound = new Howl({
+        src: ['audio/walk/2.00Secs-4taps.wav'],
+        preload: true
+      });
+    },
     playDropSound() {
       const volume =
         this.settings.find((element) => element.name === 'Ambient SFX').value *
         0.125;
-
-      new Howl({
-        src: ['audio/64-taps.wav'],
-        preload: true,
-        autoplay: true,
-        volume: volume
-      });
+      this.dropSound.volume(volume);
+      this.dropSound.play();
+    },
+    playWalkSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'Ambient SFX').value *
+        0.125;
+      this.walkSound.volume(volume);
+      this.walkSound.play();
     }
   }
 });
