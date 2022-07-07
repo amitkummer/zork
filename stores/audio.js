@@ -25,8 +25,19 @@ export const useAudioStore = defineStore('audio', {
           value: 4
         }
       ],
+      // Ambient FX.
       dropSound: null,
-      walkSound: null
+      walkSound: null,
+      // Achivements.
+      take5ItemsSound: null,
+      take10ItemsSound: null,
+      take20ItemsSound: null,
+      explore5RoomsSound: null,
+      explore10RoomsSound: null,
+      explore20RoomsSound: null,
+      get5ScoreSound: null,
+      get10ScoreSound: null,
+      get20ScoreSound: null
     };
   },
   actions: {
@@ -50,6 +61,42 @@ export const useAudioStore = defineStore('audio', {
         src: ['audio/walk/2.00Secs-4taps.wav'],
         preload: true
       });
+      this.take5ItemsSound = new Howl({
+        src: ['audio/take-item/5-items.wav'],
+        preload: true
+      });
+      this.take10ItemsSound = new Howl({
+        src: ['audio/take-item/10-items.wav'],
+        preload: true
+      });
+      this.take20ItemsSound = new Howl({
+        src: ['audio/take-item/20-items.wav'],
+        preload: true
+      });
+      this.explore5RoomsSound = new Howl({
+        src: ['audio/rooms-explored/5-rooms.wav'],
+        preload: true
+      });
+      this.explore10RoomsSound = new Howl({
+        src: ['audio/rooms-explored/10-rooms.wav'],
+        preload: true
+      });
+      this.explore20RoomsSound = new Howl({
+        src: ['audio/rooms-explored/20-rooms.wav'],
+        preload: true
+      });
+      this.get5ScoreSound = new Howl({
+        src: ['audio/score/5-score.wav'],
+        preload: true
+      });
+      this.get10ScoreSound = new Howl({
+        src: ['audio/score/10-score.wav'],
+        preload: true
+      });
+      this.get20ScoreSound = new Howl({
+        src: ['audio/score/20-score.wav'],
+        preload: true
+      });
     },
     playDropSound() {
       const volume =
@@ -64,6 +111,43 @@ export const useAudioStore = defineStore('audio', {
         0.125;
       this.walkSound.volume(volume);
       this.walkSound.play();
+    },
+    playTake5ItemsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.take5ItemsSound.volume(volume);
+      this.take5ItemsSound.play();
+      console.log(this.take5ItemsSound);
+    },
+    playTake10ItemsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.take10ItemsSound.volume(volume);
+      this.take10ItemsSound.play();
+    },
+    playTake20ItemsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.take20ItemsSound.volume(volume);
+      this.take20ItemsSound.play();
+    },
+    playExplore5RoomsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.explore5RoomsSound.volume(volume);
+      this.explore5RoomsSound.play();
+    },
+    playExplore10RoomsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.explore10RoomsSound.volume(volume);
+      this.explore10RoomsSound.play();
+    },
+    playExplore20RoomsSound() {
+      const volume =
+        this.settings.find((element) => element.name === 'SFX').value * 0.125;
+      this.explore20RoomsSound.volume(volume);
+      this.explore20RoomsSound.play();
     }
   }
 });

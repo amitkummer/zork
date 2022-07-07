@@ -21,7 +21,13 @@ export const useGameStore = defineStore('game', {
       // is the latest output.
       output: [],
       // Player Inventory.
-      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword']
+      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword'],
+      // Number of times player executed the `go` command.
+      stepsCount: 0,
+      // Number of times player exeucted the `take` command.
+      takeCount: 0,
+      // Player score.
+      score: 0
     };
   },
   actions: {
@@ -50,6 +56,30 @@ export const useGameStore = defineStore('game', {
             break;
           case 'GO':
             audioStore.playWalkSound();
+            this.stepsCount += 1;
+            switch (this.stepsCount) {
+              case 5:
+                audioStore.playExplore5RoomsSound();
+                break;
+              case 10:
+                audioStore.playExplore10RoomsSound();
+                break;
+              case 20:
+                audioStore.playExplore20RoomsSound();
+            }
+            break;
+          case 'TAKE':
+            this.takeCount += 1;
+            switch (this.takeCount) {
+              case 5:
+                audioStore.playTake5ItemsSound();
+                break;
+              case 10:
+                audioStore.playTake10ItemsSound();
+                break;
+              case 20:
+                audioStore.playTake20ItemsSound();
+            }
             break;
         }
       };
