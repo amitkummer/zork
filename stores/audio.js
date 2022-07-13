@@ -10,19 +10,19 @@ export const useAudioStore = defineStore('audio', {
       settings: [
         {
           name: 'Speech',
-          value: 0
+          value: 1
         },
         {
           name: 'SFX',
-          value: 4
+          value: 1
         },
         {
           name: 'Music',
-          value: 4
+          value: 1
         },
         {
           name: 'Ambient SFX',
-          value: 4
+          value: 1
         }
       ],
       // Ambient FX.
@@ -40,13 +40,44 @@ export const useAudioStore = defineStore('audio', {
       get20ScoreSound: null
     };
   },
+  getters: {
+    getSpeechVolume() {
+      const masterVolume = 1;
+      return (
+        this.settings.find((element) => element.name === 'Speech').value *
+        0.125 *
+        masterVolume
+      );
+    },
+    getSfxVolume() {
+      const masterVolume = 0.5;
+      return (
+        this.settings.find((element) => element.name === 'SFX').value *
+        0.125 *
+        masterVolume
+      );
+    },
+    getAmbientSfxVolume() {
+      const masterVolume = 1;
+      return (
+        this.settings.find((element) => element.name === 'Ambient SFX').value *
+        0.125 *
+        masterVolume
+      );
+    },
+    getMusicVolume() {
+      const masterVolume = 1;
+      return (
+        this.settings.find((element) => element.name === 'Music').value *
+        0.125 *
+        masterVolume
+      );
+    }
+  },
   actions: {
     speak(text) {
       const utter = new SpeechSynthesisUtterance(text);
-      const speechVolume = this.settings.find(
-        (element) => element.name === 'Speech'
-      ).value;
-      utter.volume = speechVolume * 0.125;
+      utter.volume = this.getSpeechVolume;
       if (window.speechSynthesis.speaking)
         // Stop speeking currently being spoen utterance.
         window.speechSynthesis.cancel();
@@ -99,54 +130,35 @@ export const useAudioStore = defineStore('audio', {
       });
     },
     playDropSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'Ambient SFX').value *
-        0.125;
-      this.dropSound.volume(volume);
+      this.dropSound.volume(this.getAmbientSfxVolume);
       this.dropSound.play();
     },
     playWalkSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'Ambient SFX').value *
-        0.125;
-      this.walkSound.volume(volume);
+      this.walkSound.volume(this.getAmbientSfxVolume);
       this.walkSound.play();
     },
     playTake5ItemsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.take5ItemsSound.volume(volume);
+      this.take5ItemsSound.volume(this.getSfxVolume);
       this.take5ItemsSound.play();
-      console.log(this.take5ItemsSound);
     },
     playTake10ItemsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.take10ItemsSound.volume(volume);
+      this.take10ItemsSound.volume(this.getSfxVolume);
       this.take10ItemsSound.play();
     },
     playTake20ItemsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.take20ItemsSound.volume(volume);
+      this.take20ItemsSound.volume(this.getSfxVolume);
       this.take20ItemsSound.play();
     },
     playExplore5RoomsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.explore5RoomsSound.volume(volume);
+      this.explore5RoomsSound.volume(this.getSfxVolume);
       this.explore5RoomsSound.play();
     },
     playExplore10RoomsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.explore10RoomsSound.volume(volume);
+      this.explore10RoomsSound.volume(this.getSfxVolume);
       this.explore10RoomsSound.play();
     },
     playExplore20RoomsSound() {
-      const volume =
-        this.settings.find((element) => element.name === 'SFX').value * 0.125;
-      this.explore20RoomsSound.volume(volume);
+      this.explore20RoomsSound.volume(this.getSfxVolume);
       this.explore20RoomsSound.play();
     }
   }
