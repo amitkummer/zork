@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
-    "build": "nuxi build",
+    "build": "nuxi generate",
     "start": "node .output/server/index.mjs",
     "eslint": "eslint --ext .js,.vue components app.vue",
     "stylelint": "npx stylelint assets/**/*.scss components/**/*.vue app.vue",
