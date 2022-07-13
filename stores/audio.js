@@ -37,40 +37,46 @@ export const useAudioStore = defineStore('audio', {
       explore20RoomsSound: null,
       get5ScoreSound: null,
       get10ScoreSound: null,
-      get20ScoreSound: null
+      get20ScoreSound: null,
+      // Master volume for all settings in the range [0, 1].
+      masterVolume: 0.25
     };
   },
   getters: {
     getSpeechVolume() {
-      const masterVolume = 1;
+      const masterSpeechVolume = 1;
       return (
         this.settings.find((element) => element.name === 'Speech').value *
         0.125 *
-        masterVolume
+        masterSpeechVolume *
+        this.masterVolume
       );
     },
     getSfxVolume() {
-      const masterVolume = 0.5;
+      const masterSfxVolume = 0.5;
       return (
         this.settings.find((element) => element.name === 'SFX').value *
         0.125 *
-        masterVolume
+        masterSfxVolume *
+        this.masterVolume
       );
     },
     getAmbientSfxVolume() {
-      const masterVolume = 1;
+      const masterAmbientSfxVolume = 1;
       return (
         this.settings.find((element) => element.name === 'Ambient SFX').value *
         0.125 *
-        masterVolume
+        masterAmbientSfxVolume *
+        this.masterVolume
       );
     },
     getMusicVolume() {
-      const masterVolume = 1;
+      const masterMusicVolume = 1;
       return (
         this.settings.find((element) => element.name === 'Music').value *
         0.125 *
-        masterVolume
+        masterMusicVolume *
+        this.masterVolume
       );
     }
   },
@@ -83,6 +89,8 @@ export const useAudioStore = defineStore('audio', {
         window.speechSynthesis.cancel();
       window.speechSynthesis.speak(utter);
     },
+    // Must be called before playing any non speech sound.
+    // Downloads all game audio.
     initSounds() {
       this.dropSound = new Howl({
         src: ['audio/drop/2-taps.ogg'],
