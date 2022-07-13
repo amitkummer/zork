@@ -54,47 +54,47 @@ export const useAudioStore = defineStore('audio', {
     },
     initSounds() {
       this.dropSound = new Howl({
-        src: ['audio/drop/2-taps.wav'],
+        src: ['audio/drop/2-taps.ogg'],
         preload: true
       });
       this.walkSound = new Howl({
-        src: ['audio/walk/2.00Secs-4taps.wav'],
+        src: ['audio/walk/2.00Secs-4taps.ogg'],
         preload: true
       });
       this.take5ItemsSound = new Howl({
-        src: ['audio/take-item/5-items.wav'],
+        src: ['audio/take-item/5-items.ogg'],
         preload: true
       });
       this.take10ItemsSound = new Howl({
-        src: ['audio/take-item/10-items.wav'],
+        src: ['audio/take-item/10-items.ogg'],
         preload: true
       });
       this.take20ItemsSound = new Howl({
-        src: ['audio/take-item/20-items.wav'],
+        src: ['audio/take-item/20-items.ogg'],
         preload: true
       });
       this.explore5RoomsSound = new Howl({
-        src: ['audio/rooms-explored/5-rooms.wav'],
+        src: ['audio/rooms-explored/5-rooms.ogg'],
         preload: true
       });
       this.explore10RoomsSound = new Howl({
-        src: ['audio/rooms-explored/10-rooms.wav'],
+        src: ['audio/rooms-explored/10-rooms.ogg'],
         preload: true
       });
       this.explore20RoomsSound = new Howl({
-        src: ['audio/rooms-explored/20-rooms.wav'],
+        src: ['audio/rooms-explored/20-rooms.ogg'],
         preload: true
       });
       this.get5ScoreSound = new Howl({
-        src: ['audio/score/5-score.wav'],
+        src: ['audio/score/5-score.ogg'],
         preload: true
       });
       this.get10ScoreSound = new Howl({
-        src: ['audio/score/10-score.wav'],
+        src: ['audio/score/10-score.ogg'],
         preload: true
       });
       this.get20ScoreSound = new Howl({
-        src: ['audio/score/20-score.wav'],
+        src: ['audio/score/20-score.ogg'],
         preload: true
       });
     },
