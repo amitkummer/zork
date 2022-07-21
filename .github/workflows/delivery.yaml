@@ -1,0 +1,23 @@
+name: Zork
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Zork
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install Production Dependencies
+        run: npm ci --legacy-peer-deps --omit=dev
+      - name: Generate Nuxt Site
+        run: npm run build
+      - name: Deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./.output/public
+          github_token: ${{ secrets.GITHUB_TOKEN }}

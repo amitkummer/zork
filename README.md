@@ -44,12 +44,12 @@ npm run lint
 
 To fix `stylelint` errors use `stylelint --fix`.
 
-## Production
+## Deployment
 
-Build the application for production:
+Generate the site:
 
 ```bash
-yarn build
+npm run build
 ```
 
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
+Checkout the [static hosting guide](https://v3.nuxtjs.org/guide/deploy/static-hosting/).

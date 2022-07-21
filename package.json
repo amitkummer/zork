@@ -10,6 +10,8 @@
     "format": "npx prettier --write ."
   },
   "devDependencies": {
+  },
+  "dependencies": {
     "@openfonts/fira-code_latin": "^1.44.8",
     "@vueuse/core": "^8.5.0",
     "@vueuse/nuxt": "^8.5.0",
@@ -25,9 +27,7 @@
     "stylelint": "^14.7.1",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-config-standard-vue": "^1.0.0"
-  },
-  "dependencies": {
+    "stylelint-config-standard-vue": "^1.0.0",
     "@pinia/nuxt": "^0.1.8",
     "howler": "^2.2.3",
     "pinia": "^2.0.13"
