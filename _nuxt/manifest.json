@@ -1,0 +1,22 @@
+{
+  "node_modules/nuxt3/dist/app/entry.mjs": {
+    "file": "entry-e064c7c3.mjs",
+    "src": "node_modules/nuxt3/dist/app/entry.mjs",
+    "isEntry": true,
+    "css": [
+      "entry.2f8751f4.css"
+    ],
+    "assets": [
+      "fira-code-latin-300.aa9e8514.woff2",
+      "fira-code-latin-300.5d77d487.woff",
+      "fira-code-latin-400.a5173dde.woff2",
+      "fira-code-latin-400.340e30c1.woff",
+      "fira-code-latin-500.99e7938f.woff2",
+      "fira-code-latin-500.0969d89e.woff",
+      "fira-code-latin-600.835f2663.woff2",
+      "fira-code-latin-600.394d06b6.woff",
+      "fira-code-latin-700.82a3c600.woff2",
+      "fira-code-latin-700.ff36c0b1.woff"
+    ]
+  }
+}
