@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   css: ['@/assets/style/main.scss', '@openfonts/fira-code_latin/index.css'],
   buildModules: ['@pinia/nuxt', '@vueuse/nuxt'],
   app: {
-    baseURL: "/zork"
-  }
+    baseURL: "https://amitkummer.github.io/zork/",
+    cdnURL: "https://amitkummer.github.io/zork/"
+  },
+  target: 'static'
 });
