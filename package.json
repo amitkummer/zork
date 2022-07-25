@@ -9,8 +9,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "format": "npx prettier --write ."
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "@openfonts/fira-code_latin": "^1.44.8",
     "@vueuse/core": "^8.5.0",

@@ -7,6 +7,7 @@ import { useAudioStore } from '@/stores/audio';
 onMounted(() => {
   gameStore.initGame();
   useAudioStore().initSounds();
+  useAudioStore().playMusic();
 });
 
 const gameStore = useGameStore();

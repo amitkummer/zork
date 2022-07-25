@@ -7,24 +7,10 @@ export const useAudioStore = defineStore('audio', {
     return {
       // Game volume.
       // Values are in the range `[0, 8]`.
-      settings: [
-        {
-          name: 'Speech',
-          value: 1
-        },
-        {
-          name: 'SFX',
-          value: 1
-        },
-        {
-          name: 'Music',
-          value: 1
-        },
-        {
-          name: 'Ambient SFX',
-          value: 1
-        }
-      ],
+      speechVolume: 4,
+      sfxVolume: 4,
+      musicVolume: 4,
+      ambientSfxVolume: 4,
       // Ambient FX.
       dropSound: null,
       walkSound: null,
@@ -38,46 +24,25 @@ export const useAudioStore = defineStore('audio', {
       get5ScoreSound: null,
       get10ScoreSound: null,
       get20ScoreSound: null,
+      // Music.
+      musicSound: null,
       // Master volume for all settings in the range [0, 1].
       masterVolume: 0.25
     };
   },
   getters: {
     getSpeechVolume() {
-      const masterSpeechVolume = 1;
-      return (
-        this.settings.find((element) => element.name === 'Speech').value *
-        0.125 *
-        masterSpeechVolume *
-        this.masterVolume
-      );
+      return this.speechVolume * 0.125 * this.masterVolume;
     },
     getSfxVolume() {
       const masterSfxVolume = 0.5;
-      return (
-        this.settings.find((element) => element.name === 'SFX').value *
-        0.125 *
-        masterSfxVolume *
-        this.masterVolume
-      );
+      return this.sfxVolume * 0.125 * masterSfxVolume * this.masterVolume;
     },
     getAmbientSfxVolume() {
-      const masterAmbientSfxVolume = 1;
-      return (
-        this.settings.find((element) => element.name === 'Ambient SFX').value *
-        0.125 *
-        masterAmbientSfxVolume *
-        this.masterVolume
-      );
+      return this.ambientSfxVolume * 0.125 * this.masterVolume;
     },
     getMusicVolume() {
-      const masterMusicVolume = 1;
-      return (
-        this.settings.find((element) => element.name === 'Music').value *
-        0.125 *
-        masterMusicVolume *
-        this.masterVolume
-      );
+      return this.musicVolume * 0.125 * this.masterVolume;
     }
   },
   actions: {
@@ -136,6 +101,11 @@ export const useAudioStore = defineStore('audio', {
         src: ['audio/score/20-score.ogg'],
         preload: true
       });
+      this.musicSound = new Howl({
+        src: ['audio/music/dungeon.ogg'],
+        preload: true,
+        loop: true
+      });
     },
     playDropSound() {
       this.dropSound.volume(this.getAmbientSfxVolume);
@@ -168,6 +138,10 @@ export const useAudioStore = defineStore('audio', {
     playExplore20RoomsSound() {
       this.explore20RoomsSound.volume(this.getSfxVolume);
       this.explore20RoomsSound.play();
+    },
+    playMusic() {
+      this.musicSound.volume(this.getMusicVolume);
+      this.musicSound.play();
     }
   }
 });
