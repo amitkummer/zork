@@ -3,7 +3,7 @@
 <template>
   <fieldset class="l-main">
     <legend class="l-main-title">
-      <a class="l-main-title-link" href="https://github.com/amitkummer"
+      <a class="l-main-title-link" href="https://github.com/amitkummer/zork"
         >🐧 Star on GitHub</a
       >
     </legend>
@@ -34,10 +34,10 @@
 
     &-link {
       text-decoration: none;
-      font-weight: var(--type-weight-3);
+      font-weight: var(--type-weight-4);
       color: var(--color-accent-f1);
       padding-bottom: var(--space-1);
-      border-bottom: 1px solid;
+      border-bottom: 2px solid;
     }
 
     &-link:hover {

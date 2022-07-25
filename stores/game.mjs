@@ -21,7 +21,7 @@ export const useGameStore = defineStore('game', {
       // is the latest output.
       output: [],
       // Player Inventory.
-      inventory: ['Leaflet', 'Knife', 'Lantern', 'Glass Bottle', 'Sword'],
+      inventory: [],
       // Number of times player executed the `go` command.
       stepsCount: 0,
       // Number of times player exeucted the `take` command.
