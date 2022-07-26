@@ -4,7 +4,7 @@
     "src": "node_modules/nuxt3/dist/app/entry.mjs",
     "isEntry": true,
     "css": [
-      "entry.346843c0.css"
+      "entry.93a25477.css"
     ],
     "assets": [
       "fira-code-latin-300.aa9e8514.woff2",
