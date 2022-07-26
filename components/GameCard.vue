@@ -41,8 +41,8 @@ function submitInput() {
       <input
         v-model="userInput"
         class="game-input"
-        @keydown.enter="submitInput"
         autofocus
+        @keydown.enter="submitInput"
       />
     </div>
   </div>

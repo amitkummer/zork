@@ -7,7 +7,7 @@ const store = useAudioStore();
 const { speechVolume, sfxVolume, musicVolume, ambientSfxVolume } =
   storeToRefs(store);
 
-watch(musicVolume, (musicVolume) => {
+watch(musicVolume, () => {
   // Pause and unpause the music playing, so the new volume takes effect.
   store.musicSound.pause();
   store.playMusic();
