@@ -2,7 +2,7 @@
 
 ## Setup
 
-Make sure to install the dependencies
+Install zork's dependencies:
 
 ```bash
 # --legacy-peer-deps is required for installing pinia.
@@ -12,13 +12,19 @@ npm ci --legacy-peer-deps
 
 ## Development
 
-Start the development server on http://localhost:3000
+Start the development server on http://localhost:3000:
 
 ```bash
 npm run dev
 ```
 
 ### Linting
+
+Run `stylelint`, `eslint` and `prettier` in a single command:
+
+```bash
+npm run lint
+```
 
 The `vue3` docs include a [guide](https://vuejs.org/guide/scaling-up/tooling.html#linting) for using `eslint`.
 
@@ -36,12 +42,6 @@ Run 'stylelint' from the command line:
 npm run stylelint
 ```
 
-Running `stylelint`, `eslint` and `prettier` in a single command:
-
-```bash
-npm run lint
-```
-
 To fix `stylelint` errors use `stylelint --fix`.
 
 ## Deployment
@@ -52,4 +52,4 @@ Generate the site:
 npm run build
 ```
 
-Checkout the [static hosting guide](https://v3.nuxtjs.org/guide/deploy/static-hosting/).
+For more information on Nuxt static hosting, check out the [static hosting guide](https://v3.nuxtjs.org/guide/deploy/static-hosting/).
