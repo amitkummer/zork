@@ -34,7 +34,7 @@
 
     &-link {
       text-decoration: none;
-      font-weight: var(--type-weight-4);
+      font-weight: var(--type-weight-3);
       color: var(--color-accent-f1);
       padding-bottom: var(--space-1);
       border-bottom: 2px solid;
