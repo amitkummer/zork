@@ -1,5 +1,6 @@
 # Zork: The Great Underground Empire - Vue Edition
 
+
 ## Setup
 
 Install zork's dependencies:
@@ -10,6 +11,7 @@ Install zork's dependencies:
 npm ci --legacy-peer-deps
 ```
 
+
 ## Development
 
 Start the development server on http://localhost:3000:
@@ -17,6 +19,16 @@ Start the development server on http://localhost:3000:
 ```bash
 npm run dev
 ```
+
+
+### Formatting
+
+Format all source files using:
+
+```bash
+npm run format
+```
+
 
 ### Linting
 
@@ -43,6 +55,7 @@ npm run stylelint
 ```
 
 To fix `stylelint` errors use `stylelint --fix`.
+
 
 ## Deployment
 
