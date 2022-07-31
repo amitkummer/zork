@@ -5,6 +5,11 @@ export const useAudioStore = defineStore('audio', {
   // arrow function recommended for full type inference
   state: () => {
     return {
+      // If the player has indicated they want to enable audio at the start
+      // of the game, this property is `false`.
+      // If this property is `true` then all the playFooSound methods won't
+      // play anything.
+      isAudioDisabled: true,
       // Game volume.
       // Values are in the range `[0, 8]`.
       speechVolume: 4,
@@ -47,6 +52,7 @@ export const useAudioStore = defineStore('audio', {
   },
   actions: {
     speak(text) {
+      if (this.isAudioDisabled) return;
       const utter = new SpeechSynthesisUtterance(text);
       utter.volume = this.getSpeechVolume;
       if (window.speechSynthesis.speaking)
@@ -108,38 +114,47 @@ export const useAudioStore = defineStore('audio', {
       });
     },
     playDropSound() {
+      if (this.isAudioDisabled) return;
       this.dropSound.volume(this.getAmbientSfxVolume);
       this.dropSound.play();
     },
     playWalkSound() {
+      if (this.isAudioDisabled) return;
       this.walkSound.volume(this.getAmbientSfxVolume);
       this.walkSound.play();
     },
     playTake5ItemsSound() {
+      if (this.isAudioDisabled) return;
       this.take5ItemsSound.volume(this.getSfxVolume);
       this.take5ItemsSound.play();
     },
     playTake10ItemsSound() {
+      if (this.isAudioDisabled) return;
       this.take10ItemsSound.volume(this.getSfxVolume);
       this.take10ItemsSound.play();
     },
     playTake20ItemsSound() {
+      if (this.isAudioDisabled) return;
       this.take20ItemsSound.volume(this.getSfxVolume);
       this.take20ItemsSound.play();
     },
     playExplore5RoomsSound() {
+      if (this.isAudioDisabled) return;
       this.explore5RoomsSound.volume(this.getSfxVolume);
       this.explore5RoomsSound.play();
     },
     playExplore10RoomsSound() {
+      if (this.isAudioDisabled) return;
       this.explore10RoomsSound.volume(this.getSfxVolume);
       this.explore10RoomsSound.play();
     },
     playExplore20RoomsSound() {
+      if (this.isAudioDisabled) return;
       this.explore20RoomsSound.volume(this.getSfxVolume);
       this.explore20RoomsSound.play();
     },
     playMusic() {
+      if (this.isAudioDisabled) return;
       this.musicSound.volume(this.getMusicVolume);
       this.musicSound.play();
     }

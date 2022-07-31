@@ -5,18 +5,37 @@ import { useGameStore } from '@/stores/game';
 import { useAudioStore } from '@/stores/audio';
 
 onMounted(() => {
-  gameStore.initGame();
+  output.value.push('Would you like to enable game sound? [Y/n]');
   useAudioStore().initSounds();
-  useAudioStore().playMusic();
 });
 
 const gameStore = useGameStore();
 const { location, output } = storeToRefs(gameStore);
 
+const audioStore = useAudioStore();
 let userInput = ref('');
-
+let isFirstInput = true;
 function submitInput() {
-  gameStore.enterCommand(userInput.value);
+  if (isFirstInput) {
+    // First user input indicates if sound should be turned on.
+    isFirstInput = false;
+    if (userInput.value !== 'n') {
+      // Player chose to enable audio.
+      audioStore.isAudioDisabled = false;
+      audioStore.playMusic();
+    } else {
+      // Player chose to disable audio.
+      output.value.push('AUDIO DISABLED');
+      audioStore.speechVolume = 0;
+      audioStore.sfxVolume = 0;
+      audioStore.musicVolume = 0;
+      audioStore.ambientSfxVolume = 0;
+    }
+    gameStore.initGame();
+  } else {
+    gameStore.enterCommand(userInput.value);
+  }
+
   userInput.value = '';
 }
 </script>
@@ -24,9 +43,6 @@ function submitInput() {
 <template>
   <div class="game">
     <div class="game-output">
-      <p>
-        {{ location }}
-      </p>
       <p
         v-for="(paragraph, index) in output"
         :key="index"
