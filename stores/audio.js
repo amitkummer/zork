@@ -40,7 +40,7 @@ export const useAudioStore = defineStore('audio', {
       return this.speechVolume * 0.125 * this.masterVolume;
     },
     getSfxVolume() {
-      const masterSfxVolume = 0.35;
+      const masterSfxVolume = 0.8;
       return this.sfxVolume * 0.125 * masterSfxVolume * this.masterVolume;
     },
     getAmbientSfxVolume() {
