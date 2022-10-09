@@ -15,7 +15,7 @@ jobs:
       - name: Install Production Dependencies
         run: npm ci --legacy-peer-deps --omit=dev
       - name: Generate Nuxt Site
-        run: npm run build
+        run: ZORK_PRODUCTION=1 npm run build
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
