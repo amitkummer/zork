@@ -1,5 +1,7 @@
 # Zork: The Great Underground Empire
 
+![recreation of the game zork](.github/readme-photos/zork.png)
+
 Zork: The Great Underground Empire is a classic text adventure game which was released in 1977.
 The player begins as an "adventurer" standing near a white house in a nice forest, but soon descends into the 
 Great Underground Empire, where most of the game takes place. The player's quest is to collect the Nineteen
@@ -7,7 +9,6 @@ Treasures of Zork.
 
 **Please note: this game is far from being complete. Many items and game
 mechanics from the original game are missing.**
-
 
 ## Development
 
